@@ -76,15 +76,28 @@ def category_summary():
 
 def monthly_summary():
     expenses = read_expenses()
+
+    if not expenses:
+        print("No expenses found.")
+        return
+
     summary = {}
 
-    for e in expenses:
-        month = e["date"][:7]
-        summary[month] = summary.get(month, 0) + float(e["amount"])
+    for expense in expenses:
+        date = expense["date"]      # YYYY-MM-DD
+        month = date[:7]            # YYYY-MM
+        amount = float(expense["amount"])
 
-    print("\n📅 Monthly Summary")
-    for month, total in summary.items():
-        print(f"{month}: ₹{total}")
+        if month in summary:
+            summary[month] += amount
+        else:
+            summary[month] = amount
+
+    print("\n📅 Monthly Expense Summary")
+    print("-" * 30)
+    for month, total in sorted(summary.items()):
+        print(f"{month} : ₹{total:.2f}")
+
 
 def menu():
     print("""
