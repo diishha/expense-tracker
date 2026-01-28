@@ -2,27 +2,28 @@
 <html>
 <head>
     <title>Add Expense</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Add Expense</h1>
 
     <form method="POST">
         <label>Date:</label><br>
-        <input type="date" name="date" required><br><br>
+        <input type="date" name="date" required><br>
 
         <label>Amount:</label><br>
-        <input type="number" name="amount" step="0.01" required><br><br>
+        <input type="number" name="amount" step="0.01" required><br>
 
         <label>Category:</label><br>
-        <input type="text" name="category" required><br><br>
+        <input type="text" name="category" required><br>
 
         <label>Note:</label><br>
-        <input type="text" name="note"><br><br>
+        <input type="text" name="note"><br>
 
         <button type="submit">Add Expense</button>
     </form>
 
     <br>
-    <a href="/">Back to Home</a>
+    <a href="/">⬅️ Back to Home</a>
 </body>
 </html>

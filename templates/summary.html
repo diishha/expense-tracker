@@ -2,12 +2,13 @@
 <html>
 <head>
     <title>Monthly Summary</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Monthly Summary</h1>
 
     {% if summary %}
-        <table border="1" cellpadding="5">
+        <table>
             <tr>
                 <th>Month</th>
                 <th>Total Amount</th>
@@ -24,6 +25,6 @@
     {% endif %}
 
     <br>
-    <a href="/">Back to Home</a>
+    <a href="/">⬅️ Back to Home</a>
 </body>
 </html>
