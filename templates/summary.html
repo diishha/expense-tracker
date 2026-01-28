@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monthly Summary</title>
+</head>
+<body>
+    <h1>Monthly Summary</h1>
+
+    {% if summary %}
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Month</th>
+                <th>Total Amount</th>
+            </tr>
+            {% for month, total in summary.items() %}
+            <tr>
+                <td>{{ month }}</td>
+                <td>{{ total }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No expenses to summarize.</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>

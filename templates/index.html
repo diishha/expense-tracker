@@ -7,8 +7,11 @@
     <h1>Expense Tracker</h1>
 
     {% if expenses %}
-    <a href="/add">➕ Add Expense</a>
+    <a href="/summary">📊 Monthly Summary</a> | 
+<a href="/add">➕ Add Expense</a>
 <br><br>
+
+
 
         <table border="1" cellpadding="5">
             <tr>
@@ -16,6 +19,8 @@
                 <th>Amount</th>
                 <th>Category</th>
                 <th>Note</th>
+                <th>Action</th>
+
             </tr>
             {% for expense in expenses %}
             <tr>
@@ -23,6 +28,11 @@
                 <td>{{ expense.amount }}</td>
                 <td>{{ expense.category }}</td>
                 <td>{{ expense.note }}</td>
+                <td>
+    <a href="/edit/{{ expense.id }}">✏️ Edit</a> |
+    <a href="/delete/{{ expense.id }}" onclick="return confirm('Delete this expense?')">❌ Delete</a>
+</td>
+
             </tr>
             {% endfor %}
         </table>
