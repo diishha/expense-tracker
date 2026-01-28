@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Tracker</title>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+
+    {% if expenses %}
+    <a href="/add">➕ Add Expense</a>
+<br><br>
+
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Note</th>
+            </tr>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.note }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No expenses added yet.</p>
+    {% endif %}
+</body>
+</html>
